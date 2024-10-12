@@ -1,0 +1,25 @@
+@import '../../assets/fonts/font.css';
+
+.container {
+    height: 100dvh;
+}
+
+.q {
+    font-family: 'OAGothic';
+    font-size: 6rem;
+    color: #EEEEEE;
+}
+
+.a {
+    font-family: 'OAGothic';
+    font-weight: 500;
+    font-size: 4rem;
+    color: #02082c;
+
+
+    background-color: #EEEEEE;
+    border-color: transparent;
+    border-radius: 4rem;
+    width: 30rem;
+    box-shadow: 0.5rem 0.5rem 0 0 #02082c;
+}

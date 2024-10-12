@@ -9,7 +9,7 @@ export default function Header() {
                     to={'/'}
                     style={{ textDecoration: "none", color: 'inherit' }}
                 >
-                    OshiDAYO!
+                    오시다요
                 </Link>
             </p>
         </div>

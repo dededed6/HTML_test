@@ -3,7 +3,11 @@
 .header {
     margin: 0;
     padding: 0;
+    background-image: linear-gradient(to bottom, rgb(0,0,0,0.3), transparent);
+
+
     font-family: 'Asac';
     font-size: 2rem;
     color: #EEEEEE;
+    text-shadow: 0.2rem 0.2rem 0 black;
 }

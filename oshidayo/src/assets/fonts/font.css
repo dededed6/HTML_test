@@ -7,3 +7,10 @@
     font-family: 'Recipe';
     src: url('./Recipekorea.ttf');
 }
+
+@font-face {
+    font-family: 'OAGothic';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/OAGothic-ExtraBold.woff2') format('woff2');
+    font-weight: 800;
+    font-style: normal;
+}

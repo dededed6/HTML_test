@@ -5,19 +5,24 @@
     font-family: 'Asac';
     font-size: 8rem;
     line-height: 3rem;
+    text-shadow: 1rem 1rem 0 #02082c;
 }
 
 .goTest {
-    color:#141E61;
     background-color: #EEEEEE;
     border-color: transparent;
     border-radius: 4rem;
-    font-size: 3rem;
-    padding: 1rem;
-    padding-bottom: 0.1rem;
-    margin-top: 10rem;
     width: 30rem;
-    font-family: 'Recipe';
+    box-shadow: 0.5rem 0.5rem 0 0 #02082c;
+
+
+    padding: 1rem;
+    margin-top: 10rem;
+
+
+    font-family: 'OAGothic';
+    font-size: 3rem;
+    color:#02082c;
 }
 
 .uno {
