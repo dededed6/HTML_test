@@ -1,0 +1,52 @@
+@import '../assets/fonts/font.css';
+
+.title {
+    color : #787A91;
+    font-family: 'Asac';
+    font-size: 8rem;
+    line-height: 3rem;
+}
+
+.goTest {
+    color:#141E61;
+    background-color: #EEEEEE;
+    border-color: transparent;
+    border-radius: 4rem;
+    font-size: 3rem;
+    padding: 1rem;
+    padding-bottom: 0.1rem;
+    margin-top: 10rem;
+    width: 30rem;
+    font-family: 'Recipe';
+}
+
+.uno {
+    animation : appear 1ms 500ms;
+    animation-fill-mode: forwards;
+}
+
+.due {
+    animation : appear 1ms 1000ms;
+    animation-fill-mode: forwards;
+}
+
+.tre {
+    animation : appear 1ms 1500ms;
+    animation-fill-mode: forwards;
+}
+
+@keyframes appear {
+    0% {
+        color: #787A91;
+    }
+    100% {
+        color: #EEEEEE;
+    }
+}
+
+/*
+0F044C
+141E61
+787A91
+EEEEEE
+*/

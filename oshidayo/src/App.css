@@ -1,0 +1,9 @@
+html {
+    background-color : #0F044C;
+    text-align: center;
+}
+
+Link {
+    text-decoration: none;
+    color: inherit;
+}
