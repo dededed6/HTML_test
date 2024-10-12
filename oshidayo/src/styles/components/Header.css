@@ -1,13 +1,94 @@
 @import '../../assets/fonts/font.css';
 
-.header {
+.headerTitle {
     margin: 0;
-    padding: 0;
-    background-image: linear-gradient(to bottom, rgb(0,0,0,0.3), transparent);
+    position: absolute;
 
 
     font-family: 'Asac';
     font-size: 2rem;
     color: #EEEEEE;
     text-shadow: 0.2rem 0.2rem 0 black;
+}
+
+.oshi {
+    -webkit-animation: textChange 4s 0s infinite linear forwards;
+    -moz-animation: textChange 4s 0s infinite linear forwards;
+    -ms-animation: textChange 4s 0s infinite linear forwards;
+    -o-animation: textChange 4s 0s infinite linear forwards;
+    animation: textChange 4s 0s infinite linear forwards;
+    transform: translate(-1.8rem, 3rem);
+}
+.yo {
+    -webkit-animation: textChange 4s 1s infinite linear forwards;
+    -moz-animation: textChange 4s 1s infinite linear forwards;
+    -ms-animation: textChange 4s 1s infinite linear forwards;
+    -o-animation: textChange 4s 1s infinite linear forwards;
+    animation: textChange 4s 1s infinite linear forwards;
+    transform: translate(-0.9rem, 3rem);
+}
+.gura {
+    -webkit-animation: textChange 4s 2s infinite linear forwards;
+    -moz-animation: textChange 4s 2s infinite linear forwards;
+    -ms-animation: textChange 4s 2s infinite linear forwards;
+    -o-animation: textChange 4s 2s infinite linear forwards;
+    animation: textChange 4s 2s infinite linear forwards;
+    transform: translate(-1.8rem, 3rem);
+}
+.marine {
+    animation: textChange 4s 3s infinite linear forwards;
+    transform: translate(-1.8rem, 3rem);
+}
+
+.dayo { transform: translate(1.9rem, 0); }
+
+@keyframes textChange {
+    0% {
+        transform: translateY(-3rem);
+    }
+    25% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY((3rem));
+    }
+
+    100% {
+        transform: translateY((3rem));
+    }
+}
+
+header {
+    width: 100dvw;
+    background-image: linear-gradient(to bottom, rgb(0,0,0,0.3), transparent);
+    height: 3rem;
+    overflow: hidden;
+
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.headerLink {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    justify-content: center;
+    margin-top: 0.5rem;
+}
+
+@keyframes appear {
+    0% {
+        color: #787A91;
+    }
+    25% {
+        color: #787A91;
+    }
+    75% {
+        color: #787A91;
+    }
+    100% {
+        color: #EEEEEE;
+    }
 }
