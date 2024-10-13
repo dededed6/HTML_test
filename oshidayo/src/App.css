@@ -1,9 +1,15 @@
 html {
     background-color : #0F044C;
     text-align: center;
+    -ms-overflow-style: none; /* 익스플로러, 앳지 */
+    scrollbar-width: none; /* 파이어폭스 */
 }
 
 Link {
     text-decoration: none;
     color: inherit;
+}
+
+html::-webkit-scrollbar {
+    display: none; /* 크롬, 사파리, 오페라 */
 }

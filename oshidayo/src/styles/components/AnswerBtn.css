@@ -1,25 +1,25 @@
 @import '../../assets/fonts/font.css';
 
-.container {
-    height: 100dvh;
-}
-
-.q {
-    font-family: 'OAGothic';
-    font-size: 6rem;
-    color: #EEEEEE;
-}
-
 .a {
     font-family: 'OAGothic';
     font-weight: 500;
-    font-size: 4rem;
+    font-size: 2.5rem;
     color: #02082c;
 
-
+    padding:0.8rem;
+    margin: 1rem;
     background-color: #EEEEEE;
     border-color: transparent;
     border-radius: 4rem;
-    width: 30rem;
+    width: 50rem;
     box-shadow: 0.5rem 0.5rem 0 0 #02082c;
+
+    
+    transform: scale(1, 1);
+    transition-duration: 50ms;
+}
+
+.a:active {
+    transform: scale(0.9, 0.9);
+    transition-duration: 100ms;
 }

@@ -14,3 +14,10 @@
     font-weight: 800;
     font-style: normal;
 }
+
+@font-face {
+    font-family: 'OAGothic';
+    src: url('./OAGothic-Medium.ttf');
+    font-weight: 500;
+    font-style: normal;
+}

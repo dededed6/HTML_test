@@ -1,0 +1,17 @@
+@import '../assets/fonts/font.css';
+
+.QnA {
+    height: 100vh;
+}
+
+.question {
+    font-family: OAGothic;
+    font-weight: 800;
+    color: #EEEEEE;
+    font-size: 4.5rem;
+    text-shadow: 0.5rem 0.5rem 0 #02082c;
+
+
+    padding: 6rem;
+    padding-top: 10rem;
+}

@@ -12,55 +12,63 @@
 }
 
 .oshi {
-    -webkit-animation: textChange 4s 0s infinite linear forwards;
-    -moz-animation: textChange 4s 0s infinite linear forwards;
-    -ms-animation: textChange 4s 0s infinite linear forwards;
-    -o-animation: textChange 4s 0s infinite linear forwards;
-    animation: textChange 4s 0s infinite linear forwards;
+    animation: textChangeOshi 10s 1s infinite ease-in-out forwards;
     transform: translate(-1.8rem, 3rem);
 }
 .yo {
-    -webkit-animation: textChange 4s 1s infinite linear forwards;
-    -moz-animation: textChange 4s 1s infinite linear forwards;
-    -ms-animation: textChange 4s 1s infinite linear forwards;
-    -o-animation: textChange 4s 1s infinite linear forwards;
-    animation: textChange 4s 1s infinite linear forwards;
+    animation: textChangeName 10s 1s infinite ease-in-out forwards;
     transform: translate(-0.9rem, 3rem);
 }
 .gura {
-    -webkit-animation: textChange 4s 2s infinite linear forwards;
-    -moz-animation: textChange 4s 2s infinite linear forwards;
-    -ms-animation: textChange 4s 2s infinite linear forwards;
-    -o-animation: textChange 4s 2s infinite linear forwards;
-    animation: textChange 4s 2s infinite linear forwards;
+    animation: textChangeName 10s 0.5s infinite ease-in-out forwards;
     transform: translate(-1.8rem, 3rem);
 }
 .marine {
-    animation: textChange 4s 3s infinite linear forwards;
+    animation: textChangeName 10s 0s infinite ease-in-out forwards;
     transform: translate(-1.8rem, 3rem);
 }
 
 .dayo { transform: translate(1.9rem, 0); }
 
-@keyframes textChange {
-    0% {
-        transform: translateY(-3rem);
-    }
-    25% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY((3rem));
-    }
-
+@keyframes textChangeOshi {
     100% {
-        transform: translateY((3rem));
+        transform: translate(-1.8rem, 3rem);
+    }
+    95% {
+        transform: translate(-1.8rem, 0);
+    }
+    15% {
+        transform: translate(-1.8rem, 0);
+    }
+    10% {
+        transform: translate(-1.8rem, -3rem);
+    }
+    0% {
+        transform: translate(-1.8rem, -3rem);
+    }
+}
+
+@keyframes textChangeName {
+    100% {
+        transform: translate(-1.8rem, 3rem);
+    }
+    15% {
+        transform: translate(-1.8rem, 3rem);
+    }
+    10% {
+        transform: translate(-1.8rem, 0);
+    }
+    5% {
+        transform: translate(-1.8rem, -3rem);
+    }
+    0% {
+        transform: translate(-1.8rem, -3rem);
     }
 }
 
 header {
-    width: 100dvw;
-    background-image: linear-gradient(to bottom, rgb(0,0,0,0.3), transparent);
+    width: 100vw;
+    background-image: linear-gradient(to bottom, rgb(0,0,0,0.7), transparent);
     height: 3rem;
     overflow: hidden;
 

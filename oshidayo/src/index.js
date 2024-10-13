@@ -8,3 +8,8 @@ root.render(
     <App />
   </React.StrictMode>
 );
+
+window.addEventListener('beforeunload', (event) => {
+  event.preventDefault();
+  event.returnValue = '';
+});
