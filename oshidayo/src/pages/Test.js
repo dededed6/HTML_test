@@ -75,7 +75,7 @@ export default function Test() {
 			element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'start' });
 		}
 		else {
-			sessionStorage.setItem("result", JSON.stringify(newAnswer));
+			sessionStorage.setItem("1648652163", JSON.stringify(newAnswer));
 			goToResult();
 		}
 	};
@@ -90,7 +90,6 @@ export default function Test() {
 		<div className='QnA' id={index}>
 			<p className='question'>{item.q}</p>
 			<AnswerBtn
-				key={index}
 				handleClick={handleClick}
 				isAnswered={answer[index]}
 				elementidx={index}
@@ -99,7 +98,6 @@ export default function Test() {
 			/>
 			<br/>
 			<AnswerBtn
-				key={index}
 				handleClick={handleClick}
 				isAnswered={answer[index]}
 				elementidx={index}
@@ -108,7 +106,6 @@ export default function Test() {
 			/>
 			<br/>
 			<AnswerBtn
-				key={index}
 				handleClick={handleClick}
 				isAnswered={answer[index]}
 				elementidx={index}

@@ -1,8 +1,55 @@
 html {
-    background-color : #0F044C;
+    background: #0F044C;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #141E61, #0F044C);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #141E61, #0F044C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
     text-align: center;
     -ms-overflow-style: none; /* 익스플로러, 앳지 */
     scrollbar-width: none; /* 파이어폭스 */
+    font-size: 125%;
+   -webkit-text-size-adjust:none; 
+}
+
+@media screen and (min-device-width: 320px) {
+    html {
+        font-size: 62.5%;
+        padding-top: 8rem;
+    }
+}
+
+@media screen and (min-device-width: 360px) {
+    html {
+        font-size: 70.3125%;
+        padding-top: 8rem;
+    }
+}
+
+@media screen and (min-device-width: 375px) {
+    html {
+        font-size: 73.2421%;
+        padding-top: 8rem;
+    }
+}
+
+@media screen and (min-device-width: 412px) {
+    html {
+        font-size: 80.4688%;
+        padding-top: 8rem;
+    }
+}
+
+@media screen and (min-device-width: 414px) {
+    html {
+        font-size: 80.8594%;
+        padding-top: 4rem;
+    }
+}
+
+@media screen and (min-device-width: 640px) {
+    html {
+        font-size: 125%;
+        padding-top: 0rem;
+    }
 }
 
 Link {
