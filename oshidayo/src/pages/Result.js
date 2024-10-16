@@ -62,10 +62,19 @@ export default function Result() {
 
         if (searchParams.get('hash') != null) {
             result = makeResult(searchParams.get('hash'));
-            const resultStr = encodeURIComponent(JSON.stringify(result));
+            const resultStr = JSON.stringify(result)
+                .replaceAll(',', 'a')
+                .replaceAll('[', 'b')
+                .replaceAll(']', 'c')
+                .replaceAll('{', 'd')
+                .replaceAll('}', 'e')
+                .replaceAll(':', 'f')
+                .replaceAll('"', 'g');
+            const shortQuery =  parseInt(resultStr, 21).toString(32);
 
-            searchParams.set('key', resultStr);
-            window.history.pushState({}, null, '?key=' + resultStr);
+            console.log(resultStr + '~~~~~' + shortQuery);
+            searchParams.set('key', shortQuery);
+            window.history.pushState({}, null, '?key=' + shortQuery);
         }
         else {
             navigate("/");
@@ -75,14 +84,22 @@ export default function Result() {
     else
     {
         try {
-            const resultStr = decodeURIComponent(window.location.href).split('=')[1];
+            const resultStr = parseInt(searchParams.get('key'), 32).toString(21)
+                .replaceAll('a', ',')
+                .replaceAll('b', '[')
+                .replaceAll('c', ']')
+                .replaceAll('d', '{')
+                .replaceAll('e', '}')
+                .replaceAll('f', ':')
+                .replaceAll('g', '"');
+            
+            console.log(' a ');
             console.log(resultStr);
-
             result = JSON.parse(resultStr);
+            console.log(' a ');
             console.log(result);
         }
         catch (e) {
-            console.log('fuck');
             navigate('/');
         }
     }
