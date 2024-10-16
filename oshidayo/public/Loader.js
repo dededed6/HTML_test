@@ -76,7 +76,6 @@ const names = ["토키노 소라", "로보코", "아즈키", "사쿠라 미코",
 
 window.onload = function(){
     readData();
-    console.log (names.length + ' ' + nodes.length);
 };
 
     
@@ -157,7 +156,10 @@ const readData = () => {
             }
             saveData();
             try {
-                document.getElementById('countText').innerText = '지금까지 ' + (userCount) + '명이 취향저격 당했습니다!';
+                const countText = document.getElementById('countText');
+                countText.innerText = '지금까지 ' + (userCount) + '명이 취향저격 당했습니다!';
+                countText.classList.add('countText');
+                console.log(countText.classList);
             } catch (e) {
 
             }

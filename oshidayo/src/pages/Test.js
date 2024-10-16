@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 export default function Test() {
 	const [answer, setAnswer] = useState(
-		[0,0,0,0,0,0,0,0,0,0,0,0,0]
+		[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1]
 	);
 
 	const questionList = [
@@ -68,14 +68,22 @@ export default function Test() {
 		let newAnswer = answer;
 		newAnswer[idx] = a;
 		setAnswer(newAnswer);
-		console.log(newAnswer);
 
-		if (idx < 12) { 
-			const element = document.getElementById(idx+1);
-			element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'start' });
-		}
-		else {
-			sessionStorage.setItem("1648652163", JSON.stringify(newAnswer));
+		let isFinishied = 1;
+
+		try {
+			answer.forEach((v, i) => {
+				if (v==-1)	{
+					const element = document.getElementById(i);
+					element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'start' });
+
+					isFinishied = 0;
+					throw new Error();
+				}
+			});
+		} catch(e) {}
+
+		if (isFinishied == 1) {
 			goToResult();
 		}
 	};
@@ -83,7 +91,7 @@ export default function Test() {
 	const navigate = useNavigate();
 
 	const goToResult = () => {
-		navigate("/result");
+		navigate("/result?hash=" + JSON.stringify(answer).replaceAll('[,\[\]]', '[3-5]'));
 	}
 
 	const aList = questionList.map((item, index) => (

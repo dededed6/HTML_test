@@ -68,7 +68,7 @@
 
 header {
     width: 100vw;
-    background-image: linear-gradient(to bottom, rgb(0,0,0,0.7), transparent);
+    background-image: linear-gradient(to bottom, #0F044C, transparent);
     height: 3rem;
     overflow: hidden;
 

@@ -62,11 +62,15 @@ EEEEEE
 }
 
 #countText {
+    opacity: 0;
+}
+
+.countText {
     font-family: 'OAGothic';
     font-size: 1.2rem;
     color: #EEEEEE;
 
-    animation: countTextUp 1s 2s ease-in-out forwards;
+    animation: countTextUp 1s 1ms ease-in-out forwards;
     transform: translate(0, 5rem);
 }
 

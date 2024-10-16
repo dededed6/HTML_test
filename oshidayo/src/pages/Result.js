@@ -1,7 +1,11 @@
 import '../styles/Result.css';
 
 import { useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, useNavigate, json, Navigate } from 'react-router-dom';
+
+import OshiChart from '../components/OshiChart';
+import ShareBtn from '../components/ShareBtn';
+import CaptureBtn from '../components/CaptureBtn';
 
 const names = ["토키노 소라", "로보코", "아즈키", "사쿠라 미코", "호시마치 스이세이", "아키 로젠탈", "아카이 하아토", "시라카미 후부키", "나츠이로 마츠리", "미나토 아쿠아", "무라사키 시온", "나키리 아야메", "유즈키 초코", "오오조라 스바루", "오오카미 미오", "네코마타 오카유", "이누가미 코로네", "우사다 페코라", "시라누이 후레아", "시로가네 노엘", "호쇼 마린", "아마네 카나타", "키류 코코", "츠노마키 와타메", "토코야미 토와", "히메모리 루나", "유키하나 라미", "모모스즈 네네", "시시로 보탄", "오마루 폴카", "라플라스 다크니스", "타카네 루이", "하쿠이 코요리", "사카마타 클로에", "카자마 이로하", "아윤다 리스", "호시노바 무나", "이오피프틴", "쿠레이지 올리", "아냐 멜핏샤", "파볼리아 레이네", "베스티아 제타", "카엘라 코발스키아", "코보 카나에루", "모리 칼리오페", "타카나시 키아라", "니노마에 이나니스", "가우르 구라", "아멜리아 왓슨", "아이리스", "츠쿠모 사나", "세레스 파우나", "오로 크로니", "나나시 무메이", "하코스 벨즈", "시오리 노벨라", "코세키 비쥬", "네리사 레이븐크로프트", "후와와 어비스가드", "모코코 어비스가드", "엘리자베스 로즈 블러드플레임", "지지 무린", "세실리아 이머그린", "라오라 판테라", "히오도시 아오", "오토노세 카나데", "이치조 리리카", "주우후테이 라덴", "토도로키 하지메"];
 const questionList = [
@@ -45,29 +49,51 @@ const questionList = [
         "바보 포지션을 책임치고 있어요",
         "언제나 재밌어요"]];
 
+
 export default function Result() {
     let imageName = '0';
 
     const [searchParams, setSearchParams] = useSearchParams();
+    const navigate = useNavigate();
+
     let result;
 
-    if (searchParams.get('key') == null) {        
-        result = makeResult();
-        
-        searchParams.set('key', JSON.stringify(result));
+    if (searchParams.get('key') == null) {
+
+        if (searchParams.get('hash') != null) {
+            result = makeResult(searchParams.get('hash'));
+            const resultStr = encodeURIComponent(JSON.stringify(result));
+
+            searchParams.set('key', resultStr);
+            window.history.pushState({}, null, '?key=' + resultStr);
+        }
+        else {
+            navigate("/");
+            result = [{name:'', score:'', nodes:[]}];
+        }
     }
     else
     {
-        result = JSON.parse(searchParams.get('key'));
+        try {
+            const resultStr = decodeURIComponent(window.location.href).split('=')[1];
+            console.log(resultStr);
+
+            result = JSON.parse(resultStr);
+            console.log(result);
+        }
+        catch (e) {
+            console.log('fuck');
+            navigate('/');
+        }
     }
     
-    const oshi_name = result[0][0];
     const oshi = result[0];
+    const oshiName = names[oshi.h];
 
     let charm = [];
     for (let i=0; i<13; i++) {
-        if (oshi[i+1][0] == 2 || oshi[i+1][0] == 20) charm[i] = questionList[i][0];
-        else if (oshi[i+1][1] == 2 || oshi[i+1][1] == 20) charm[i] = questionList[i][1];
+        if (oshi.j[i][0] == 2 || oshi.j[i][0] == 19) charm[i] = questionList[i][0];
+        else if (oshi.j[i][1] == 2 || oshi.j[i][1] == 19) charm[i] = questionList[i][1];
         else charm[i] = questionList[i][2];
     }
 
@@ -75,15 +101,30 @@ export default function Result() {
         <p className='charmList'>{item}</p>
 	));
 
-    return (
-        <div style={{alignItems:'center'}}>
-            <h1 className="resultTitle">당신의 취저 멤버는</h1>
-            <img src={ require('../assets/images/members/'+oshi_name+'.png') } style={{margin:'1rem', boxShadow:'0.5rem 0.5rem 1rem 0 #02082c'}} />
-            <h1 className="resultTitle Name" id="name">{oshi_name}입니다!</h1>
-            <p className='sub'>이 멤버와 {oshi[15]/100}% 어울립니다!</p>
+    const oshiList = result.map((v) => (
+        <OshiChart name={names[v.h]} score={v.i}/>
+    ));
+    /*
+    공유하기: https://velog.io/@yjohbjects/React%EC%97%90%EC%84%9C-%ED%81%B4%EB%A6%BD%EB%B3%B4%EB%93%9C%EC%97%90-%ED%85%8D%EC%8A%A4%ED%8A%B8-%EB%B3%B5%EC%82%AC%ED%95%98%EA%B8%B0
+    캡쳐하기: https://hisoit.tistory.com/102
+    */
 
-            <div className='explain'>
-                {charmList}
+    return (
+        <div>
+            <h1 className="resultTitle">당신의 취저 멤버는</h1>
+            <img src={ require('../assets/images/members/'+oshiName+'.png') } style={{margin:'1rem', boxShadow:'0.5rem 0.5rem 1rem 0 #02082c', width:'18rem', height:'18rem'}} />
+            <h1 className="resultTitle Name" id="name">{oshiName}입니다!</h1>
+            <p className='sub'>이 멤버와 {oshi.i/100}% 어울립니다!</p>
+
+            <br/>
+
+            <div className='explain' id='oshiChart'>
+                <div id='capture'>{oshiList}</div>
+            </div>
+
+            <div className='shareBox'>
+                <CaptureBtn/>
+                <ShareBtn/>
             </div>
 
             <p className='sub'>이 멤버의 매력은?</p>
@@ -91,36 +132,47 @@ export default function Result() {
                 {charmList}
             </div>
 
+            <br/>
+            
+            <p className='sub'>취저 멤버가 오시인가요?</p>
+            <button>맞음</button>
+            <button>아님</button>
 
             
         </div>
     );
 }
 
-const makeResult = () => {
-    const result = JSON.parse(sessionStorage.getItem('1648652163'));
+const makeResult = (answer) => {
+    const result = JSON.parse(answer);
     const nodes = JSON.parse(sessionStorage.getItem('984645163'));
 
     for (let i=0; i<names.length; i++) {
         
         let tempScore = 0;
 
-        nodes[i].forEach((item, index) => {
+        nodes[i].forEach((v, index) => {
             if (index != 13) {
                 const userNode = parseInt(result[index]);
-                tempScore += parseInt(item[userNode]);
+                tempScore += parseInt(v[userNode]);
             }
         });
 
-        nodes[i].unshift(names[i]);
-
-        let per = parseInt((tempScore / 43 * 100) * 100);
-        nodes[i].push(per);
+        nodes[i] = {
+            h: i,
+            i: parseInt((tempScore / 43 * 100) * 100),
+            j: nodes[i]
+        };
     }
 
-    const resultNodes = nodes.sort((a, b) => b[15] - a[15]);
-    console.log(resultNodes);
+    let resultNodes = nodes.sort((a, b) => b.i - a.i);
+    resultNodes.forEach((v, index) => {
+        if (index != 0) {
+            delete v.j;
+        }
+    })
+
+    resultNodes = resultNodes.slice(0,20);
+
     return resultNodes;
 }
-
-// 5- 멜

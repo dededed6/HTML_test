@@ -1,0 +1,19 @@
+@import '../../assets/fonts/font.css';
+
+.shareBtn {
+    font-family: 'Asac';
+    color: #EEEEEE;
+    font-size: 2rem;
+
+
+    border-color: transparent;
+    border-radius: 0.5rem;
+    background-color: #1060C2;
+    padding: 0.1rem;
+    width: 11.9rem;
+    margin: 0.4rem;
+
+    box-shadow: 0.1rem 0.1rem 0.3rem 0 #02082c;
+
+    display: inline-block;
+}

@@ -22,18 +22,26 @@
     font-weight: 800;
     font-size: 1.8rem;
     color: #EEEEEE;
-    text-shadow: 0.2rem 0.2rem 0 #02082c;
+    text-shadow: 0.1rem 0.1rem 0 #02082c;
 
-    margin: 0;
+    margin: 0.3rem;
     padding: 0;
 }
 
 .explain {
-    width: 25rem;
-    padding: 0;
+    width: 30rem;
+    padding: 0.5rem;
     margin: 0 auto;
     background-color: #EEEEEE;
+    box-shadow: 0.1rem 0.1rem 0.3rem 0 #02082c;
     
+    border-radius: 0.2rem;
+}
+
+#capture {
+    background-color: #EEEEEE;
+    margin: 0;
+    padding: 0.2rem;
 }
 
 .charmList {
@@ -41,6 +49,26 @@
     font-weight: 500;
     font-size: 1rem;
     color: #02082c;
+    margin: 0;
+    padding: 0;
+}
+
+.shareBox {
+    text-align: center;
+    padding: 0.2rem;
+}
+
+.OshiChart {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    margin-top: 0.5rem;
+}
+
+.per {
+    font-family: 'OAGothic';
+    font-weight: 800;
+    font-size: 1rem;
     margin: 0;
     padding: 0;
 }
